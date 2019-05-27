@@ -2,42 +2,101 @@
   <app-top-nav></app-top-nav>
   <app-side-nav></app-side-nav>
   <div class='form'>
-    <mat-card style="min-height: 80vh">
+     <mat-card style="min-height: 80vh">
       <mat-card-header>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Student Registeration</mat-card-title>
-        <mat-card-subtitle>Enter details</mat-card-subtitle>
       </mat-card-header>
-      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <mat-card-content>
-        <form class="example-form">
-          <mat-form-field>
-            <input matInput placeholder="First Name" value="">
-          </mat-form-field>&nbsp;&nbsp;&nbsp;
-          <mat-form-field>
-            <input matInput placeholder="Last Name">
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-            <input matInput placeholder="Phone Number" value="">
-          </mat-form-field>&nbsp;&nbsp;&nbsp;
-          <mat-form-field>
-            <input matInput placeholder="Email" value="">
-          </mat-form-field>
-          <br>
-          <mat-form-field>
-            <input matInput placeholder="Father's Name">
-          </mat-form-field>&nbsp;&nbsp;&nbsp;
-          <mat-form-field>
-            <input matInput placeholder="Mother's Name">
-          </mat-form-field>
-        </form>
+       
+        <mat-horizontal-stepper [linear] = "isLinear" #stepper>
+          <mat-step [stepControl] = "firstFormGroup">
+             <form [formGroup] = "firstFormGroup">
+                 <ng-template matStepLabel>Admission Details</ng-template>               
+
+                 <div class="row">
+                    <div class="col-sm-4">
+                        <mat-form-field>
+                            <mat-select matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
+                              <mat-option>None</mat-option>
+                              <mat-option value="New">New</mat-option>
+                              <mat-option value="Supplementary">Supplementary</mat-option>
+                              <mat-option value="Old">Old</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <mat-form-field>
+                            <mat-select matNativeControl  (ngModelChange)="classChange($event)" [(ngModel)]="selectedValue"  required placeholder = "Admission Class" formControlName = "firstCtrl" required>
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let class of classes" [value]="class.value">
+                                  {{class.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-4"> 
+                        <mat-form-field>
+                            <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
+                                <mat-option *ngFor="let stream of streams" [value]="stream.value">
+                                    {{stream.viewValue}}
+                                  </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                  </div>
+
+                 
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <mat-form-field>
+                              <input matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
+                            </mat-form-field>
+                      </div>
+                      <div class="col-sm-4">
+                          <mat-form-field>
+                              <input matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
+                            </mat-form-field>
+                      </div>
+                      <div class="col-sm-4"></div>
+                  </div>
+                
+               
+                
+                <div>
+                  <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+             </form>
+          </mat-step>
+          <mat-step [stepControl] = "secondFormGroup">
+             <form [formGroup] = "secondFormGroup">
+                <ng-template matStepLabel>Enter your address</ng-template>
+                <mat-form-field>
+                  <input matInput placeholder = "Address" formControlName = "secondCtrl" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+             </form>
+          </mat-step>
+          <mat-step>
+             <ng-template matStepLabel>Done</ng-template>
+                Details taken.
+             <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click) = "stepper.reset()">Reset</button>
+             </div>
+          </mat-step>
+       </mat-horizontal-stepper>
       </mat-card-content>
-      <mat-card-actions style="text-align: center;margin-top: 20vh">
+      <!-- <mat-card-actions style="text-align: center;margin-top: 20vh">
         <button mat-raised-button color="primary">SAVE</button>
         <button mat-raised-button color="warn">CANCEL</button>
-      </mat-card-actions>
-    </mat-card>
+      </mat-card-actions> -->
+    </mat-card> 
+
 
   </div>
 </div>
