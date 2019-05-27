@@ -1,0 +1,91 @@
+<br>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7">
+      <br/>
+      <h3>
+        <strong>School Management System</strong>
+      </h3>
+      <p>
+        <i>Depending on what we want to do, we might need to implement one or the other guard. In some cases, we even need to
+          implement all of them. Let’s take a look at how to define guards</i>
+      </p>
+
+      <img src="./assets/background.jpg" class="img-responsive" width="100%" height="58%" alt="Image">
+
+    </div>
+
+    <div class="col-md-5">
+      <br>
+      <br>
+      <br>
+      <div class="sideForm">
+
+        <div [hidden]="register">
+          <form class="text-center border border-light p-5" (submit)="doLogin()">
+
+            <p class="h4 mb-4">Sign in</p>
+
+            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email" name="email">
+
+            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="password"
+              name="password">
+
+            <div class="d-flex justify-content-around">
+              <div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                  <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                </div>
+              </div>
+              <div>
+                <a href="">Forgot password?</a>
+              </div>
+            </div>
+
+            <button class="btn btn-info btn-block my-4">Sign In</button>
+
+            <div class="d-flex justify-content-around">
+              <div>
+                <a [routerLink]="" (click)="togglePage()">Not a member! Register?</a>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div [hidden]="!register">
+          <form class="text-center border border-light p-5" (submit)="doRegister()">
+
+            <p class="h4 mb-4">Sign Up</p>
+
+            <input type="text" id="defaultLoginFormOrg" class="form-control mb-4" placeholder="Organization Name" [(ngModel)]="organization" name="organization">
+
+            <input type="text" id="defaultLoginFormName" class="form-control mb-4" placeholder="Full Name" [(ngModel)]="fullname" name="fullname">
+
+            <!-- Email -->
+            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email" name="email">
+
+            <!-- Password -->
+            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" [(ngModel)]="password"
+              name="password">
+
+            <!-- Sign in button -->
+            <button class="btn btn-info btn-block my-4">Sign Up</button>
+
+            <div class="d-flex justify-content-around">
+              <div>
+                <!-- Forgot password -->
+                <a [routerLink]="" (click)="togglePage()">Already a member! Login?</a>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

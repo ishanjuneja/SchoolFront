@@ -1,0 +1,43 @@
+<div id="main-content">
+  <app-top-nav></app-top-nav>
+  <app-side-nav></app-side-nav>
+  <div class='form'>
+    <mat-card style="min-height: 80vh">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>Student Registeration</mat-card-title>
+        <mat-card-subtitle>Enter details</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <form class="example-form">
+          <mat-form-field>
+            <input matInput placeholder="First Name" value="">
+          </mat-form-field>&nbsp;&nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput placeholder="Last Name">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Phone Number" value="">
+          </mat-form-field>&nbsp;&nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput placeholder="Email" value="">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Father's Name">
+          </mat-form-field>&nbsp;&nbsp;&nbsp;
+          <mat-form-field>
+            <input matInput placeholder="Mother's Name">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center;margin-top: 20vh">
+        <button mat-raised-button color="primary">SAVE</button>
+        <button mat-raised-button color="warn">CANCEL</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>
