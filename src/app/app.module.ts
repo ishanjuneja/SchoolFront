@@ -16,8 +16,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatStepperModule, MatInputModule, MatButtonModule,MatSelectModule} from '@angular/material'
+import {MatStepperModule, MatInputModule, MatButtonModule,MatSelectModule,MatNativeDateModule} from '@angular/material'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
     MatStepperModule,
+    MatNativeDateModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -54,7 +60,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi   : true,
-  }
+  },
+  MatDatepickerModule
 ],
   bootstrap: [AppComponent]
 })

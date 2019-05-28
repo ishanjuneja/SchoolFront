@@ -15,7 +15,7 @@
                  <ng-template matStepLabel>Admission Details</ng-template>               
 
                  <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <mat-form-field>
                             <mat-select matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
@@ -26,7 +26,7 @@
                           </mat-form-field>
 
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <mat-form-field>
                             <mat-select matNativeControl  (ngModelChange)="classChange($event)" [(ngModel)]="selectedValue"  required placeholder = "Admission Class" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
@@ -36,7 +36,7 @@
                             </mat-select>
                           </mat-form-field>
                     </div>
-                    <div class="col-sm-4"> 
+                    <div class="col-sm-3"> 
                         <mat-form-field>
                             <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
                                 <mat-option *ngFor="let stream of streams" [value]="stream.value">
@@ -45,25 +45,21 @@
                             </mat-select>
                           </mat-form-field>
                     </div>
-                  </div>
-
-                 
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
+                          </mat-form-field>
+                    </div>
+                  </div>                 
                   <div class="row">
-                      <div class="col-sm-4">
-                          <mat-form-field>
-                              <input matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
-                            </mat-form-field>
-                      </div>
-                      <div class="col-sm-4">
+                      
+                      <div class="col-sm-3">
                           <mat-form-field>
                               <input matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
                             </mat-form-field>
                       </div>
-                      <div class="col-sm-4"></div>
-                  </div>
-                
-               
-                
+                      <div class="col-sm-3"></div>
+                  </div>                                             
                 <div>
                   <button mat-raised-button color="primary" matStepperNext>Next</button>
                 </div>
@@ -71,21 +67,201 @@
           </mat-step>
           <mat-step [stepControl] = "secondFormGroup">
              <form [formGroup] = "secondFormGroup">
-                <ng-template matStepLabel>Enter your address</ng-template>
-                <mat-form-field>
-                  <input matInput placeholder = "Address" formControlName = "secondCtrl" required>
-                </mat-form-field>
+                <ng-template matStepLabel>Personal Details</ng-template>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder = "Student First Name" formControlName = "secondCtrl" required>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder = "Student Last Name" formControlName = "secondCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder = "Father's First Name" formControlName = "secondCtrl" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder = "Father's Last Name" formControlName = "secondCtrl" required>
+                        </mat-form-field>
+                    </div>
+                  </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput placeholder = "Mother's First Name" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput placeholder = "Mother's Last Name" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Caste Class" formControlName = "secondCtrl" required>                                   
+                                    <mat-option value="SC">SC</mat-option>
+                                    <mat-option value="ST">ST</mat-option>
+                                    <mat-option value="OBC">OBC</mat-option>
+                                    <mat-option value="GEN">GEN</mat-option>
+                                </mat-select>
+                              </mat-form-field>                              
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput placeholder = "Cast Name" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Religion" formControlName = "secondCtrl" required>                                   
+                                    <mat-option value="Hinduism">Hinduism</mat-option>
+                                    <mat-option value="Islam">Islam</mat-option>
+                                    <mat-option value="Sikhism">Sikhism</mat-option>
+                                    <mat-option value="Christianity">Christianity</mat-option>
+                                    <mat-option value="Buddhism">Buddhism</mat-option>
+                                    <mat-option value="Jainism">Jainism</mat-option>
+                                    <mat-option value="Others">Others</mat-option>
+                                </mat-select>
+                              </mat-form-field> 
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName = "secondCtrl" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                              </mat-form-field> 
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput placeholder = "Father's occupation" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input matInput placeholder = "Annual Income" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                        
+
+                    
+                
+                
                 <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button>
+                  <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                  <button mat-raised-button color="primary" matStepperNext>Next</button>
                 </div>
              </form>
           </mat-step>
+
+          <mat-step [stepControl]="thirdFormGroup">
+              <form [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Bank Details</ng-template>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder="Bank Account No." formControlName="thirdCtrl" required>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder="Bank IFSC Code" formControlName="thirdCtrl" required>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput placeholder="Bank Name" formControlName="thirdCtrl" required>
+                          </mat-form-field>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="fourthFormGroup">
+                <form [formGroup]="fourthFormGroup">
+                  <ng-template matStepLabel>Address Details</ng-template>
+                  <fieldset>
+                      <legend>Permanent Address:</legend>
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="Colony" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="District" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="PinCode" formControlName="fourthCtrl" required>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                  </fieldset>
+                  <fieldset>
+                      <legend>Local Address:</legend>
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="Colony" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="District" formControlName="fourthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input matInput placeholder="PinCode" formControlName="fourthCtrl" required>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                  </fieldset>
+  
+                  
+                  <div class="row">
+                      <div class="col-sm-3">
+                          
+                        </div>
+                  </div>
+                  <div>
+                      <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                      <button mat-raised-button color="primary" matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
           <mat-step>
              <ng-template matStepLabel>Done</ng-template>
                 Details taken.
              <div>
-                <button mat-button matStepperPrevious>Back</button>
+                <button mat-raised-button color="warn" matStepperPrevious>Back</button>
                 <button mat-button (click) = "stepper.reset()">Reset</button>
              </div>
           </mat-step>

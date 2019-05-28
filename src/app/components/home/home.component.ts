@@ -11,6 +11,9 @@ export interface SelectType {
   value: string;
   viewValue: string;
 }
+export class DatepickerStartViewExample {
+  startDate = new Date(1990, 0, 1);
+}
 
 
 declare var $: any;
@@ -26,6 +29,8 @@ export class HomeComponent implements OnInit {
  isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
   selectedValue: string;
   streams: SelectType[] = [];
   classes: SelectType[] = [];
@@ -43,6 +48,13 @@ export class HomeComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+    });
+    this.fourthFormGroup = this._formBuilder.group({
+      fourthCtrl: ['', Validators.required]
+    });
+    
 
     this.initClasses();
   }
