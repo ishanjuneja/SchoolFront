@@ -20,6 +20,6 @@ ul li {
 .form{
     width: 80vw;
     margin-left: 10vw;
-    margin-top: 10vh;
+    /* margin-top: 10vh; */
     min-height: 80vh;
 }

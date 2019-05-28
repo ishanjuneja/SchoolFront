@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 
 body{
     background: url('./assets/background1.jpg') center center no-repeat fixed;
     background-size: cover;
+}
+
+html, body { 
+    margin: 0;
+    height: 100%;
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9b17d84d4923c17c2b722b7e65d118e94ed8eb9c" datatype="html">
+        <source>Student Registeration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6d3128dd7767e436053ecee9f1f41e0b836f36f9" datatype="html">
+        <source>Enter details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3188d5e2d2a44e06dadc5989e95d6351b30df385" datatype="html">
+        <source>
+            <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;"/>
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf272d006ff8c0b60e61b14e17fa6a39b30d614a" datatype="html">
+        <source>SAVE</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b8c2008ce5428bd8dabf6980d3163af4c7b02f0" datatype="html">
+        <source>CANCEL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

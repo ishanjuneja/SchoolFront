@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9b17d84d4923c17c2b722b7e65d118e94ed8eb9c" datatype="html">
+      <source>Student Registeration</source>
+        <target>छात्र पंजीकरण</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6d3128dd7767e436053ecee9f1f41e0b836f36f9" datatype="html">
+      <source>Enter details</source>
+        <target>विवरण दर्ज करें</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf272d006ff8c0b60e61b14e17fa6a39b30d614a" datatype="html">
+      <source>SAVE</source>
+        <target>सम्मिलित</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b8c2008ce5428bd8dabf6980d3163af4c7b02f0" datatype="html">
+       <source>CANCEL</source>
+        <target>रद्द करना</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/home/home.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

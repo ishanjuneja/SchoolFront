@@ -1,6 +1,4 @@
 <div id="main-content">
-  <app-top-nav></app-top-nav>
-  <app-side-nav></app-side-nav>
   <div class='form'>
      <mat-card style="min-height: 80vh">
       <mat-card-header>
@@ -17,7 +15,7 @@
                  <div class="row">
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionType" matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
                               <mat-option value="New">New</mat-option>
                               <mat-option value="Supplementary">Supplementary</mat-option>
@@ -28,7 +26,7 @@
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select matNativeControl  (ngModelChange)="classChange($event)" [(ngModel)]="selectedValue"  required placeholder = "Admission Class" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionClass" matNativeControl  (ngModelChange)="classChange($event)" required placeholder = "Admission Class" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
                               <mat-option *ngFor="let class of classes" [value]="class.value">
                                   {{class.viewValue}}
@@ -38,7 +36,7 @@
                     </div>
                     <div class="col-sm-3"> 
                         <mat-form-field>
-                            <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionStream" matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
                                 <mat-option *ngFor="let stream of streams" [value]="stream.value">
                                     {{stream.viewValue}}
                                   </mat-option>
@@ -47,7 +45,7 @@
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
+                            <input [(ngModel)]="student.studentDetail.sssmid" matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
                           </mat-form-field>
                     </div>
                   </div>                 
@@ -55,7 +53,7 @@
                       
                       <div class="col-sm-3">
                           <mat-form-field>
-                              <input matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
+                              <input [(ngModel)]="student.studentDetail.aadharNumber"  matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
                             </mat-form-field>
                       </div>
                       <div class="col-sm-3"></div>
@@ -72,39 +70,39 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder = "Student First Name" formControlName = "secondCtrl" required>
+                            <input [(ngModel)]="student.firstName" matInput placeholder = "Student First Name" formControlName = "secondCtrl" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder = "Student Last Name" formControlName = "secondCtrl" required>
+                            <input [(ngModel)]="student.lastName" matInput placeholder = "Student Last Name" formControlName = "secondCtrl" required>
                         </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder = "Father's First Name" formControlName = "secondCtrl" required>
+                            <input [(ngModel)]="student.studentDetail.fatherName" matInput placeholder = "Father's Name" formControlName = "secondCtrl" required>
                         </mat-form-field>
                     </div>
-                    <div class="col-sm-3">
+                    <!-- <div class="col-sm-3">
                         <mat-form-field>
                             <input matInput placeholder = "Father's Last Name" formControlName = "secondCtrl" required>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                   </div>
                     <div class="row">
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <input matInput placeholder = "Mother's First Name" formControlName = "secondCtrl" required>
+                                <input [(ngModel)]="student.studentDetail.motherName" matInput placeholder = "Mother's Name" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
-                        <div class="col-sm-3">
+                        <!-- <div class="col-sm-3">
                             <mat-form-field>
                                 <input matInput placeholder = "Mother's Last Name" formControlName = "secondCtrl" required>
                             </mat-form-field>
-                        </div>
+                        </div> -->
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Caste Class" formControlName = "secondCtrl" required>                                   
+                                <mat-select [(ngModel)]="student.studentDetail.category" matNativeControl  [(value)]="selected"  required placeholder = "Caste Class" formControlName = "secondCtrl" required>                                   
                                     <mat-option value="SC">SC</mat-option>
                                     <mat-option value="ST">ST</mat-option>
                                     <mat-option value="OBC">OBC</mat-option>
@@ -114,7 +112,7 @@
                         </div>
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <input matInput placeholder = "Cast Name" formControlName = "secondCtrl" required>
+                                <input [(ngModel)]="student.studentDetail.categoryName" matInput placeholder = "Cast Name" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
                     </div>
@@ -122,7 +120,7 @@
                         
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <mat-select matNativeControl  [(value)]="selected"  required placeholder = "Religion" formControlName = "secondCtrl" required>                                   
+                                <mat-select [(ngModel)]="student.studentDetail.religion" matNativeControl  [(value)]="selected"  required placeholder = "Religion" formControlName = "secondCtrl" required>                                   
                                     <mat-option value="Hinduism">Hinduism</mat-option>
                                     <mat-option value="Islam">Islam</mat-option>
                                     <mat-option value="Sikhism">Sikhism</mat-option>
@@ -135,19 +133,19 @@
                         </div>
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName = "secondCtrl" required>
+                                <input [(ngModel)]="student.DOB" matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName = "secondCtrl" required>
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                               </mat-form-field> 
                         </div>
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <input matInput placeholder = "Father's occupation" formControlName = "secondCtrl" required>
+                                <input [(ngModel)]="student.studentDetail.fathersOccupation" matInput placeholder = "Father's occupation" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
                         <div class="col-sm-3">
                             <mat-form-field>
-                                <input matInput placeholder = "Annual Income" formControlName = "secondCtrl" required>
+                                <input [(ngModel)]="student.studentDetail.totalIncome" matInput placeholder = "Annual Income" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
                     </div>
@@ -165,22 +163,22 @@
 
           <mat-step [stepControl]="thirdFormGroup">
               <form [formGroup]="thirdFormGroup">
-                <ng-template matStepLabel>Bank Details</ng-template>
+                <ng-template matStepLabel>Bank Details</ng-template> 
 
                 <div class="row">
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder="Bank Account No." formControlName="thirdCtrl" required>
+                            <input [(ngModel)]="student.bankDetail.accountNumber" matInput placeholder="Bank Account No." formControlName="thirdCtrl" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder="Bank IFSC Code" formControlName="thirdCtrl" required>
+                            <input [(ngModel)]="student.bankDetail.IFSC" matInput placeholder="Bank IFSC Code" formControlName="thirdCtrl" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input matInput placeholder="Bank Name" formControlName="thirdCtrl" required>
+                            <input [(ngModel)]="student.bankDetail.bankName" matInput placeholder="Bank Name" formControlName="thirdCtrl" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3"></div>
@@ -195,51 +193,51 @@
                 <form [formGroup]="fourthFormGroup">
                   <ng-template matStepLabel>Address Details</ng-template>
                   <fieldset>
-                      <legend>Permanent Address:</legend>
+                      <legend style="font-size: small;">Permanent Address:</legend>
                       <div class="row">
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="Colony" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[0].colony" matInput placeholder="Colony" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[0].tehsil" matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="District" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[0].district" matInput placeholder="District" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="PinCode" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[0].pincode" matInput placeholder="PinCode" formControlName="fourthCtrl" required>
                               </mat-form-field>
                           </div>
                       </div>
                   </fieldset>
                   <fieldset>
-                      <legend>Local Address:</legend>
+                      <legend style="font-size: small;">Local Address:</legend>
                       <div class="row">
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="Colony" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[1].colony" matInput placeholder="Colony" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[1].tehsil" matInput placeholder="Tahsil" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="District" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[1].district" matInput placeholder="District" formControlName="fourthCtrl" required>
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <input matInput placeholder="PinCode" formControlName="fourthCtrl" required>
+                                  <input [(ngModel)]="student.addresses[1].pincode" matInput placeholder="PinCode" formControlName="fourthCtrl" required>
                               </mat-form-field>
                           </div>
                       </div>
@@ -257,12 +255,109 @@
                   </div>
                 </form>
               </mat-step>
+
+              <mat-step [stepControl]="fifthFormGroup">
+                    <form [formGroup]="fifthFormGroup">
+                      <ng-template matStepLabel>Others Details</ng-template>
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <mat-select [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl  [(value)]="selected"  required placeholder = "Handicapped" formControlName = "fifthCtrl" required>                                   
+                                      <mat-option value="Y">Yes</mat-option>
+                                      <mat-option value="N">No</mat-option>                       
+                                  </mat-select>
+                                </mat-form-field>     
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledType" matInput placeholder="Handicapped Type" formControlName="fifthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledPercentage" matInput placeholder="Handicapped Percentage" formControlName="fifthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                                  <mat-form-field>
+                                      <mat-select [(ngModel)]="student.studentDetail.rationCard" matNativeControl  [(value)]="selected"  required placeholder = "Ration card Type" formControlName = "fifthCtrl" required>                                   
+                                          <mat-option value="APL">APL</mat-option>
+                                          <mat-option value="BPL">BPL</mat-option> 
+                                          <mat-option value="Others">Others</mat-option>                      
+                                      </mat-select>
+                                    </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.rationCardNumber" matInput placeholder="Ration Card No." formControlName="fifthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.rationCardIssueDate" matInput [matDatepicker]="pickerTo" placeholder="Issue Date" formControlName = "fifthCtrl" required>
+                                  <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                </mat-form-field> 
+                          </div>
+                      </div>   
+                      <div class="row">
+                          <fieldset>
+                              <legend style="font-size: medium;">Last two years Education Details:</legend>
+                          
+                              <table class="table table-dark table-bordered table-hover table-condensed table-responsive" >
+                                  <thead > 
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">Class</th>
+                                      <th scope="col">Year</th>
+                                      <th scope="col">Institute Name</th>
+                                      <th scope="col">Total Marks</th>
+                                      <th scope="col">Scored Marks</th>
+                                      <th scope="col">Division/Percentage</th>
+                                      <th scope="col">Exam Center No</th>
+                                      <th scope="col">Education Board</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">2</th>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                      <td><input type="text" class="form-control" required></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                          </fieldset>
+                      </div>
+                    </form>
+                </mat-step>
+
+
           <mat-step>
              <ng-template matStepLabel>Done</ng-template>
                 Details taken.
              <div>
                 <button mat-raised-button color="warn" matStepperPrevious>Back</button>
                 <button mat-button (click) = "stepper.reset()">Reset</button>
+                <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
              </div>
           </mat-step>
        </mat-horizontal-stepper>
