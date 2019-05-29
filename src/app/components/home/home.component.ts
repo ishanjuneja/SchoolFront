@@ -37,14 +37,17 @@ export class HomeComponent implements OnInit {
   // selectedValue: string;
   streams: SelectType[] = [];
   classes: SelectType[] = [];
-
+  isPhysicallyDisabled:Boolean=false;
   student:Student = new Student();
 
   constructor(private superAdminService: SuperAdminService, private spinnerService: Ng4LoadingSpinnerService,
     private router: Router, private _formBuilder: FormBuilder, private studentService:StudentService) {
   }
 
+  
   ngOnInit() {
+   
+
 
     this.getApplicationRoles();
     this.firstFormGroup = this._formBuilder.group({
@@ -64,9 +67,13 @@ export class HomeComponent implements OnInit {
     });
 
     this.initClasses();
+    this.initForm();
+    this.onChange();
   }
 
-
+initForm(){
+  this.fifthFormGroup = new FormGroup({handicapControl:new FormControl(),fifthCtrl:new FormControl()});
+}
   initClasses() {
     this.classes = [
       { value: '9', viewValue: '9th' }, { value: '10', viewValue: '10th' },
@@ -112,5 +119,11 @@ saveStudent(){
       console.log(err)
     }
   )
+}
+
+onChange(){
+  this.fifthFormGroup.controls['handicapControl'].valueChanges.subscribe(value=>{
+    this.isPhysicallyDisabled=value=='Y'?true:false;
+  })
 }
 }

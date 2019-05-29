@@ -262,18 +262,18 @@
                       <div class="row">
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <mat-select [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl required placeholder = "Handicapped" formControlName = "fifthCtrl">                                   
+                                  <mat-select (onChange)="onChange($event)" [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl required placeholder = "Handicapped" formControlName = "handicapControl">                                   
                                       <mat-option value="Y">Yes</mat-option>
                                       <mat-option value="N">No</mat-option>                       
                                   </mat-select>
                                 </mat-form-field>     
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-3" *ngIf="isPhysicallyDisabled">
                               <mat-form-field>
                                   <input [(ngModel)]="student.studentDetail.physicallyDisabledType" matInput placeholder="Handicapped Type" formControlName="fifthCtrl" required>
                                 </mat-form-field>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-sm-3" *ngIf="isPhysicallyDisabled">
                               <mat-form-field>
                                   <input [(ngModel)]="student.studentDetail.physicallyDisabledPercentage" matInput placeholder="Handicapped Percentage" formControlName="fifthCtrl" required>
                                 </mat-form-field>
