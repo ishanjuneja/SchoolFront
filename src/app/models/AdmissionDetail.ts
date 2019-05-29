@@ -5,4 +5,7 @@ export class AdmissionDetail {
     admissionCategory:String;
     scholarNumber:String;
     year:String;
+    enrollmentNo:String;
+    feeReceiptNo:String;
+    familyId:String;
 }
