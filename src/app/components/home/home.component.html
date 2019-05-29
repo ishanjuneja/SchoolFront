@@ -83,6 +83,11 @@
                             <input [(ngModel)]="student.studentDetail.fatherName" matInput placeholder = "Father's Name" formControlName = "secondCtrl" required>
                         </mat-form-field>
                     </div>
+                    <div class="col-sm-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="student.studentDetail.motherName" matInput placeholder = "Mother's Name" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
                     <!-- <div class="col-sm-3">
                         <mat-form-field>
                             <input matInput placeholder = "Father's Last Name" formControlName = "secondCtrl" required>
@@ -90,11 +95,7 @@
                     </div> -->
                   </div>
                     <div class="row">
-                        <div class="col-sm-3">
-                            <mat-form-field>
-                                <input [(ngModel)]="student.studentDetail.motherName" matInput placeholder = "Mother's Name" formControlName = "secondCtrl" required>
-                            </mat-form-field>
-                        </div>
+                        
                         <!-- <div class="col-sm-3">
                             <mat-form-field>
                                 <input matInput placeholder = "Mother's Last Name" formControlName = "secondCtrl" required>
@@ -115,10 +116,7 @@
                                 <input [(ngModel)]="student.studentDetail.categoryName" matInput placeholder = "Cast Name" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div class="col-sm-3">
+                         <div class="col-sm-3">
                             <mat-form-field>
                                 <mat-select [(ngModel)]="student.studentDetail.religion" matNativeControl  [(value)]="selected"  required placeholder = "Religion" formControlName = "secondCtrl" required>                                   
                                     <mat-option value="Hinduism">Hinduism</mat-option>
@@ -138,6 +136,10 @@
                                 <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                               </mat-form-field> 
                         </div>
+                    </div>
+                    <div class="row">
+                        
+                       
                         <div class="col-sm-3">
                             <mat-form-field>
                                 <input [(ngModel)]="student.studentDetail.fathersOccupation" matInput placeholder = "Father's occupation" formControlName = "secondCtrl" required>
@@ -149,11 +151,7 @@
                             </mat-form-field>
                         </div>
                     </div>
-                        
 
-                    
-                
-                
                 <div>
                   <button mat-raised-button color="warn" matStepperPrevious>Back</button>
                   <button mat-raised-button color="primary" matStepperNext>Next</button>
@@ -260,24 +258,7 @@
                     <form [formGroup]="fifthFormGroup">
                       <ng-template matStepLabel>Others Details</ng-template>
                       <div class="row">
-                          <div class="col-sm-3">
-                              <mat-form-field>
-                                  <mat-select (onChange)="onChange($event)" [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl required placeholder = "Handicapped" formControlName = "handicapControl">                                   
-                                      <mat-option value="Y">Yes</mat-option>
-                                      <mat-option value="N">No</mat-option>                       
-                                  </mat-select>
-                                </mat-form-field>     
-                          </div>
-                          <div class="col-sm-3" *ngIf="isPhysicallyDisabled">
-                              <mat-form-field>
-                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledType" matInput placeholder="Handicapped Type" formControlName="fifthCtrl" required>
-                                </mat-form-field>
-                          </div>
-                          <div class="col-sm-3" *ngIf="isPhysicallyDisabled">
-                              <mat-form-field>
-                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledPercentage" matInput placeholder="Handicapped Percentage" formControlName="fifthCtrl" required>
-                                </mat-form-field>
-                          </div>
+                          
                           <div class="col-sm-3">
                                   <mat-form-field>
                                       <mat-select [(ngModel)]="student.studentDetail.rationCard" matNativeControl  required placeholder = "Ration card Type" formControlName = "fifthCtrl">                                   
@@ -287,8 +268,6 @@
                                       </mat-select>
                                     </mat-form-field>
                           </div>
-                      </div>
-                      <div class="row">
                           <div class="col-sm-3">
                               <mat-form-field>
                                   <input [(ngModel)]="student.studentDetail.rationCardNumber" matInput placeholder="Ration Card No." formControlName="fifthCtrl" required>
@@ -300,6 +279,26 @@
                                   <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
                                   <mat-datepicker #pickerTo startView="year" [startAt]="startDate"></mat-datepicker>
                                 </mat-form-field> 
+                          </div>
+                          <div class="col-sm-3">
+                              <mat-form-field>
+                                  <mat-select (onChange)="onChange($event)" [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl required placeholder = "Handicapped" formControlName = "handicapControl">                                   
+                                      <mat-option value="Y">Yes</mat-option>
+                                      <mat-option value="N">No</mat-option>                       
+                                  </mat-select>
+                                </mat-form-field>     
+                          </div>
+                      </div>
+                      <div class="row" *ngIf="isPhysicallyDisabled">
+                            <div class="col-sm-3" >
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledType" matInput placeholder="Handicapped Type" formControlName="fifthCtrl" required>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-3" >
+                              <mat-form-field>
+                                  <input [(ngModel)]="student.studentDetail.physicallyDisabledPercentage" matInput placeholder="Handicapped Percentage" formControlName="fifthCtrl" required>
+                                </mat-form-field>
                           </div>
                       </div>   
                       <div class="row">

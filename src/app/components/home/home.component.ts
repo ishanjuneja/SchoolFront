@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
-  // selectedValue: string;
   streams: SelectType[] = [];
   classes: SelectType[] = [];
   isPhysicallyDisabled:Boolean=false;
