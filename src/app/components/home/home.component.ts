@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
+  sixFormGroup: FormGroup;
   streams: SelectType[] = [];
   classes: SelectType[] = [];
   isPhysicallyDisabled:Boolean=false;
@@ -64,6 +65,10 @@ export class HomeComponent implements OnInit {
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
     });
+    this.sixFormGroup = this._formBuilder.group({
+        sixCtrl: ['', Validators.required]
+    });
+    
 
     this.initClasses();
     this.initForm();

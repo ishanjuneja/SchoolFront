@@ -347,13 +347,44 @@
                           </fieldset>
                       </div>
                     </form>
-                    <div style="padding-left: 40%">
+                    <!-- <div style="padding-left: 40%">
                             <button mat-raised-button color="warn" matStepperPrevious>Back</button>
                             <button mat-stroked-button (click) = "stepper.reset()">Reset</button>
                             <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
-                         </div>
+                         </div> -->
                 </mat-step>
-
+				<mat-step [stepControl]="sixFormGroup">
+                    <form [formGroup]="sixFormGroup">
+                      <ng-template matStepLabel>Enclosure </ng-template>
+                      <table class="table table-hover table-responsive" >
+                           <tr>
+                           		<td><mat-checkbox>S. L. C</mat-checkbox></td>
+                           		<td><mat-checkbox>Last two years marksheet</mat-checkbox></td>
+                           	</tr>
+                           <tr>
+                           		<td><mat-checkbox>Cast certificate</mat-checkbox></td>
+                           		<td><mat-checkbox>Income certificate</mat-checkbox></td>
+                           	</tr>
+                           <tr>
+                           		<td><mat-checkbox>Ration card</mat-checkbox></td>
+                           		<td><mat-checkbox>Bank account details</mat-checkbox></td>
+                           	</tr>
+                           <tr>
+                           		<td><mat-checkbox>Aadhar card</mat-checkbox></td>
+                           		<td><mat-checkbox>SSSM ID</mat-checkbox></td>
+                           	</tr>
+                           	<tr>
+                           		<td><mat-checkbox>Domicile certificate</mat-checkbox></td>
+                           		<td><mat-checkbox>Others</mat-checkbox></td>
+                           	</tr>
+                       </table>
+                     </form>
+                     <div >
+                         <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                         <button mat-stroked-button (click) = "stepper.reset()">Reset</button>
+                         <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
+                     </div>
+                 </mat-step>
 
           <!-- <mat-step>
              <ng-template matStepLabel>Done</ng-template>
