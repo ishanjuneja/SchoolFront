@@ -7,7 +7,7 @@ export class Student {
     id: Number;
     firstName: String;
     lastName: String;
-    DOB: String;
+    dob: String;
     phoneNumber: String;
     email: String;
     studentDetail: StudentDetail;

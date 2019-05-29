@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-sm-3"> 
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionStream" matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionCategory" matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
                                 <mat-option *ngFor="let stream of streams" [value]="stream.value">
                                     {{stream.viewValue}}
                                   </mat-option>
@@ -262,7 +262,7 @@
                       <div class="row">
                           <div class="col-sm-3">
                               <mat-form-field>
-                                  <mat-select [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl  [(value)]="selected"  required placeholder = "Handicapped" formControlName = "fifthCtrl" required>                                   
+                                  <mat-select [(ngModel)]="student.studentDetail.physicallyDisabled" matNativeControl required placeholder = "Handicapped" formControlName = "fifthCtrl">                                   
                                       <mat-option value="Y">Yes</mat-option>
                                       <mat-option value="N">No</mat-option>                       
                                   </mat-select>
@@ -280,7 +280,7 @@
                           </div>
                           <div class="col-sm-3">
                                   <mat-form-field>
-                                      <mat-select [(ngModel)]="student.studentDetail.rationCard" matNativeControl  [(value)]="selected"  required placeholder = "Ration card Type" formControlName = "fifthCtrl" required>                                   
+                                      <mat-select [(ngModel)]="student.studentDetail.rationCard" matNativeControl  required placeholder = "Ration card Type" formControlName = "fifthCtrl">                                   
                                           <mat-option value="APL">APL</mat-option>
                                           <mat-option value="BPL">BPL</mat-option> 
                                           <mat-option value="Others">Others</mat-option>                      
@@ -298,7 +298,7 @@
                               <mat-form-field>
                                   <input [(ngModel)]="student.studentDetail.rationCardIssueDate" matInput [matDatepicker]="pickerTo" placeholder="Issue Date" formControlName = "fifthCtrl" required>
                                   <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-                                  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                  <mat-datepicker #pickerTo startView="year" [startAt]="startDate"></mat-datepicker>
                                 </mat-form-field> 
                           </div>
                       </div>   
@@ -348,10 +348,15 @@
                           </fieldset>
                       </div>
                     </form>
+                    <div style="padding-left: 40%">
+                            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                            <button mat-stroked-button (click) = "stepper.reset()">Reset</button>
+                            <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
+                         </div>
                 </mat-step>
 
 
-          <mat-step>
+          <!-- <mat-step>
              <ng-template matStepLabel>Done</ng-template>
                 Details taken.
              <div>
@@ -359,7 +364,7 @@
                 <button mat-button (click) = "stepper.reset()">Reset</button>
                 <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
              </div>
-          </mat-step>
+          </mat-step> -->
        </mat-horizontal-stepper>
       </mat-card-content>
       <!-- <mat-card-actions style="text-align: center;margin-top: 20vh">

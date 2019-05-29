@@ -1,6 +1,6 @@
 export class BankDetail{
     id:Number;
 	accountNumber:String;
-	IFSC:String;
+	ifscCode:String;
 	bankName:String;
 }
