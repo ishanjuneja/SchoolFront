@@ -39,17 +39,32 @@ export class HomeComponent implements OnInit {
   classes: SelectType[] = [];
   isPhysicallyDisabled:Boolean=false;
   student:Student = new Student();
+  id:number;
 
   constructor(private superAdminService: SuperAdminService, private spinnerService: Ng4LoadingSpinnerService,
     private router: Router, private _formBuilder: FormBuilder, private studentService:StudentService) {
+  
+  if(this.router.getCurrentNavigation().extras.state){
+      this.id=this.router.getCurrentNavigation().extras.state.id
+      console.log('--------'+this.id);
+    //  this.studentService.getSelectedStudent(id);
+      
+      this.studentService.getSelectedStudent(this.id).subscribe(
+              res=>{
+                console.log(res);
+                this.student=res as Student;
+              },
+              err=>{
+                console.log(err)
+              }
+            )
+  }
+  
   }
 
   
   ngOnInit() {
    
-
-
-    this.getApplicationRoles();
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -73,8 +88,14 @@ export class HomeComponent implements OnInit {
     this.initClasses();
     this.initForm();
     this.onChange();
+    
   }
 
+  initStudentByStudentList(stud:Student){
+      this.student=stud;
+  }
+  
+  
 initForm(){
   this.fifthFormGroup = new FormGroup({handicapControl:new FormControl(),fifthCtrl:new FormControl()});
 }

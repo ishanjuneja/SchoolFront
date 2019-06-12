@@ -8,14 +8,15 @@
       <mat-card-content>
        
         <mat-horizontal-stepper [linear] = "isLinear" #stepper>
-          <mat-step [stepControl] = "firstFormGroup">
-             <form [formGroup] = "firstFormGroup">
+        <mat-step >
+           <!--<mat-step [stepControl] = "firstFormGroup">
+             <form [formGroup] = "firstFormGroup"> -->
                  <ng-template matStepLabel>Admission Details</ng-template>               
 
                  <div class="row">
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionType" matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionType" matNativeControl  required placeholder = "Admission Type"  required>
                               <mat-option>None</mat-option>
                               <mat-option value="New">New</mat-option>
                               <mat-option value="Supplementary">Supplementary</mat-option>
@@ -26,7 +27,7 @@
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionClass" matNativeControl  (ngModelChange)="classChange($event)" required placeholder = "Admission Class" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionClass" matNativeControl  (ngModelChange)="classChange($event)" required placeholder = "Admission Class"  required>
                               <mat-option>None</mat-option>
                               <mat-option *ngFor="let class of classes" [value]="class.value">
                                   {{class.viewValue}}
@@ -36,7 +37,7 @@
                     </div>
                     <div class="col-sm-3"> 
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionCategory" matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionCategory" matNativeControl  [(value)]="selected"  required placeholder = "Stream" required>
                                 <mat-option *ngFor="let stream of streams" [value]="stream.value">
                                     {{stream.viewValue}}
                                   </mat-option>
@@ -46,42 +47,42 @@
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.year" matInput placeholder = "Year" formControlName = "firstCtrl" required>
+                                    <input [(ngModel)]="student.admissionDetail.year" matInput placeholder = "Year"  required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.scholarNumber" matInput placeholder = "Scholar Number" formControlName = "firstCtrl" required>
+                                    <input [(ngModel)]="student.admissionDetail.scholarNumber" matInput placeholder = "Scholar Number"  required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.enrollmentNo" matInput placeholder = "Enrollment Number" formControlName = "firstCtrl" required>
+                                    <input [(ngModel)]="student.admissionDetail.enrollmentNo" matInput placeholder = "Enrollment Number" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.feeReceiptNo" matInput placeholder = "Fee Receipt Number" formControlName = "firstCtrl" required>
+                                    <input [(ngModel)]="student.admissionDetail.feeReceiptNo" matInput placeholder = "Fee Receipt Number"  required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.familyId" matInput placeholder = "Family ID" formControlName = "firstCtrl" required>
+                                    <input [(ngModel)]="student.admissionDetail.familyId" matInput placeholder = "Family ID" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input [(ngModel)]="student.studentDetail.sssmid" matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
+                            <input [(ngModel)]="student.studentDetail.sssmid" matInput placeholder = "SSSM ID" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                             <mat-form-field>
-                                <input [(ngModel)]="student.studentDetail.aadharNumber"  matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
+                                <input [(ngModel)]="student.studentDetail.aadharNumber"  matInput placeholder = "Aadhar No." required>
                               </mat-form-field>
                         </div>
                   </div>                 
@@ -93,7 +94,7 @@
                 <div>
                   <button mat-raised-button color="primary" matStepperNext>Next</button>
                 </div>
-             </form>
+             <!-- </form> -->
           </mat-step>
           <mat-step [stepControl] = "secondFormGroup">
              <form [formGroup] = "secondFormGroup">

@@ -21,6 +21,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     SideNavComponent,
     HomeComponent,
     TopNavComponent,
+    StudentListComponent,
     
   ],
   imports: [
@@ -54,7 +58,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule, 
     MatToolbarModule,
     MatCheckboxModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [
     { provide: LocationStrategy,
