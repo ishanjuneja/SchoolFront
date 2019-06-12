@@ -7,16 +7,15 @@
       </mat-card-header>
       <mat-card-content>
        
-        <mat-horizontal-stepper [linear] = "isLinear" #stepper>
-        <mat-step >
-           <!--<mat-step [stepControl] = "firstFormGroup">
-             <form [formGroup] = "firstFormGroup"> -->
+        <mat-vertical-stepper [linear] = "isLinear" #stepper>
+          <mat-step [stepControl] = "firstFormGroup">
+             <form [formGroup] = "firstFormGroup">
                  <ng-template matStepLabel>Admission Details</ng-template>               
 
                  <div class="row">
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionType" matNativeControl  required placeholder = "Admission Type"  required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionType" matNativeControl  required placeholder = "Admission Type" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
                               <mat-option value="New">New</mat-option>
                               <mat-option value="Supplementary">Supplementary</mat-option>
@@ -27,7 +26,7 @@
                     </div>
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionClass" matNativeControl  (ngModelChange)="classChange($event)" required placeholder = "Admission Class"  required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionClass" matNativeControl  (ngModelChange)="classChange($event)" required placeholder = "Admission Class" formControlName = "firstCtrl" required>
                               <mat-option>None</mat-option>
                               <mat-option *ngFor="let class of classes" [value]="class.value">
                                   {{class.viewValue}}
@@ -37,7 +36,7 @@
                     </div>
                     <div class="col-sm-3"> 
                         <mat-form-field>
-                            <mat-select [(ngModel)]="student.admissionDetail.admissionCategory" matNativeControl  [(value)]="selected"  required placeholder = "Stream" required>
+                            <mat-select [(ngModel)]="student.admissionDetail.admissionCategory" matNativeControl  [(value)]="selected"  required placeholder = "Stream" formControlName = "firstCtrl" required>
                                 <mat-option *ngFor="let stream of streams" [value]="stream.value">
                                     {{stream.viewValue}}
                                   </mat-option>
@@ -47,42 +46,42 @@
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.year" matInput placeholder = "Year"  required>
+                                    <input [(ngModel)]="student.admissionDetail.year" matInput placeholder = "Year" formControlName = "firstCtrl" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.scholarNumber" matInput placeholder = "Scholar Number"  required>
+                                    <input [(ngModel)]="student.admissionDetail.scholarNumber" matInput placeholder = "Scholar Number" formControlName = "firstCtrl" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.enrollmentNo" matInput placeholder = "Enrollment Number" required>
+                                    <input [(ngModel)]="student.admissionDetail.enrollmentNo" matInput placeholder = "Enrollment Number" formControlName = "firstCtrl" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.feeReceiptNo" matInput placeholder = "Fee Receipt Number"  required>
+                                    <input [(ngModel)]="student.admissionDetail.feeReceiptNo" matInput placeholder = "Fee Receipt Number" formControlName = "firstCtrl" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                             <mat-form-field>
-                                    <input [(ngModel)]="student.admissionDetail.familyId" matInput placeholder = "Family ID" required>
+                                    <input [(ngModel)]="student.admissionDetail.familyId" matInput placeholder = "Family ID" formControlName = "firstCtrl" required>
                               </mat-form-field>
                     </div>
 
                     <div class="col-sm-3">
                         <mat-form-field>
-                            <input [(ngModel)]="student.studentDetail.sssmid" matInput placeholder = "SSSM ID" required>
+                            <input [(ngModel)]="student.studentDetail.sssmid" matInput placeholder = "SSSM ID" formControlName = "firstCtrl" required>
                           </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                             <mat-form-field>
-                                <input [(ngModel)]="student.studentDetail.aadharNumber"  matInput placeholder = "Aadhar No." required>
+                                <input [(ngModel)]="student.studentDetail.aadharNumber"  matInput placeholder = "Aadhar No."  formControlName = "firstCtrl" required>
                               </mat-form-field>
                         </div>
                   </div>                 
@@ -94,7 +93,7 @@
                 <div>
                   <button mat-raised-button color="primary" matStepperNext>Next</button>
                 </div>
-             <!-- </form> -->
+             </form>
           </mat-step>
           <mat-step [stepControl] = "secondFormGroup">
              <form [formGroup] = "secondFormGroup">
@@ -183,6 +182,18 @@
                                 <input [(ngModel)]="student.studentDetail.totalIncome" matInput placeholder = "Annual Income" formControlName = "secondCtrl" required>
                             </mat-form-field>
                         </div>
+
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="student.studentDetail.primaryPhone" matInput placeholder = "Primary Phone Number" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="student.studentDetail.secondaryPhone" matInput placeholder = "Secondary Phone Number" formControlName = "secondCtrl" required>
+                            </mat-form-field>
+                        </div>
+
                     </div>
 
                 <div>
@@ -379,6 +390,10 @@
                                 </table>
                           </fieldset>
                       </div>
+                      <div>
+                            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+                            <button mat-raised-button color="primary" matStepperNext>Next</button>
+                          </div>
                     </form>
                     <!-- <div style="padding-left: 40%">
                             <button mat-raised-button color="warn" matStepperPrevious>Back</button>
@@ -391,24 +406,24 @@
                       <ng-template matStepLabel>Enclosure </ng-template>
                       <table class="table table-hover table-responsive" >
                            <tr>
-                           		<td><mat-checkbox>S. L. C</mat-checkbox></td>
-                           		<td><mat-checkbox>Last two years marksheet</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.slc">S. L. C</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.lastTwoYearsMarksheet">Last two years marksheet</mat-checkbox></td>
                            	</tr>
                            <tr>
-                           		<td><mat-checkbox>Cast certificate</mat-checkbox></td>
-                           		<td><mat-checkbox>Income certificate</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.casteCertificate">Cast certificate</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.incomeCertificate">Income certificate</mat-checkbox></td>
                            	</tr>
                            <tr>
-                           		<td><mat-checkbox>Ration card</mat-checkbox></td>
-                           		<td><mat-checkbox>Bank account details</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.rationCard">Ration card</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.bankDetails">Bank account details</mat-checkbox></td>
                            	</tr>
                            <tr>
-                           		<td><mat-checkbox>Aadhar card</mat-checkbox></td>
-                           		<td><mat-checkbox>SSSM ID</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.aadharCard">Aadhar card</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.sssmID">SSSM ID</mat-checkbox></td>
                            	</tr>
                            	<tr>
-                           		<td><mat-checkbox>Domicile certificate</mat-checkbox></td>
-                           		<td><mat-checkbox>Others</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.domicileCertificate">Domicile certificate</mat-checkbox></td>
+                           		<td><mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="student.enclosure.others">Others</mat-checkbox></td>
                            	</tr>
                        </table>
                      </form>
@@ -428,7 +443,7 @@
                 <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
              </div>
           </mat-step> -->
-       </mat-horizontal-stepper>
+       </mat-vertical-stepper>
       </mat-card-content>
       <!-- <mat-card-actions style="text-align: center;margin-top: 20vh">
         <button mat-raised-button color="primary">SAVE</button>

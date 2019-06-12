@@ -2,6 +2,7 @@ import { StudentDetail } from './StudentDetail';
 import { AdmissionDetail } from './AdmissionDetail';
 import { BankDetail } from './BankDetail';
 import { AddressDetail } from './AddressDetail';
+import { Enclosure } from './Enclosure';
 
 export class Student {
     id: Number;
@@ -13,11 +14,13 @@ export class Student {
     studentDetail: StudentDetail;
     admissionDetail: AdmissionDetail;
     bankDetail: BankDetail;
+    enclosure:Enclosure;
     addresses: AddressDetail[];
     constructor() {
         this.studentDetail = new StudentDetail();
         this.admissionDetail = new AdmissionDetail();
         this.bankDetail = new BankDetail();
+        this.enclosure=new Enclosure();
         var permanentAddress = new AddressDetail();
         permanentAddress.isPermanent = 1;
         var residentialAddress = new AddressDetail();

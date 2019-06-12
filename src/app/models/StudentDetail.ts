@@ -16,5 +16,7 @@ export class StudentDetail {
     rationCardNumber:String;
     rationCardIssueDate:String;
     fatherName:String;
-	motherName:String;
+    motherName:String;
+    primaryPhone:String;
+    secondaryPhone:String;
 }

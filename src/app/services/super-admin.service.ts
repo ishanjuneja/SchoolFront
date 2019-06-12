@@ -11,26 +11,9 @@ export class SuperAdminService {
 
     constructor(private http: HttpClient) { }
 
-    getAllUsers() {
-        return this.http.get(this.url + '/superadmin/getAllUsers', );
-    }
 
     getAppRoles() {
-        console.log('getting user roles');
-        return this.http.get(this.url + '/superadmin/getAppRoles');
-    }
-
-    updateUser(email: String, isActive: Number, roles: number[]) {
-        var data = {
-            'email': email,
-            'isActive': isActive,
-            'roles': roles
-        }
-        return this.http.post(this.url + '/superadmin/updateUser', data, { headers: { 'Content-Type': 'application/json' }, observe: "response" });
-    }
-
-    getAllSites() {
-        return this.http.get(this.url+'/superadmin/getAllSitesForUser').pipe();
+        return this.http.get(this.url + '/users/getRole');
     }
 
 }

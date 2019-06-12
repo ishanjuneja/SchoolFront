@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Student } from '../../models/Student';
 import { StudentService } from '../../services/student.service';
+import { AuthService } from '../../services/auth.service';
 
 export interface SelectType {
   value: string;
@@ -27,7 +28,7 @@ declare var $: any;
 export class HomeComponent implements OnInit {
 
   allUsers: User[];
-  roles: Role[];
+  role:String;
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -39,28 +40,20 @@ export class HomeComponent implements OnInit {
   classes: SelectType[] = [];
   isPhysicallyDisabled:Boolean=false;
   student:Student = new Student();
-  id:number;
 
-  constructor(private superAdminService: SuperAdminService, private spinnerService: Ng4LoadingSpinnerService,
+  constructor(private authService:AuthService,private spinnerService: Ng4LoadingSpinnerService,
     private router: Router, private _formBuilder: FormBuilder, private studentService:StudentService) {
+      this.authService.getRole().subscribe((res: any) => {
+      },
+        err => {
+          var role: String = err.error.text;
+          this.spinnerService.hide();
+          if (!role.startsWith('SUPER_ADMIN')) {
+            this.router.navigate(['']);
+          }
+        });
   
-  if(this.router.getCurrentNavigation().extras.state){
-      this.id=this.router.getCurrentNavigation().extras.state.id
-      console.log('--------'+this.id);
-    //  this.studentService.getSelectedStudent(id);
-      
-      this.studentService.getSelectedStudent(this.id).subscribe(
-              res=>{
-                console.log(res);
-                this.student=res as Student;
-              },
-              err=>{
-                console.log(err)
-              }
-            )
-  }
-  
-  }
+    }
 
   
   ngOnInit() {
@@ -88,14 +81,8 @@ export class HomeComponent implements OnInit {
     this.initClasses();
     this.initForm();
     this.onChange();
-    
   }
 
-  initStudentByStudentList(stud:Student){
-      this.student=stud;
-  }
-  
-  
 initForm(){
   this.fifthFormGroup = new FormGroup({handicapControl:new FormControl(),fifthCtrl:new FormControl()});
 }
@@ -104,20 +91,6 @@ initForm(){
       { value: '9', viewValue: '9th' }, { value: '10', viewValue: '10th' },
       { value: '11', viewValue: '11th' }, { value: '12', viewValue: '12th' }];
   }
-
-
-
-  getApplicationRoles() {
-    this.superAdminService.getAppRoles().subscribe((res: Role[]) => {
-      this.roles = res;
-    },
-      err => {
-        console.log('Error', err);
-      })
-  }
-
-
-
 
   classChange(event) {
     this.streams = [];
