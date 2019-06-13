@@ -12,14 +12,13 @@ import { Router } from "@angular/router";
 
 export class StudentListComponent implements OnInit {
 
-    displayedColumns: string[] = ['firstName', 'lastName', 'email','id'];
+    displayedColumns: string[] = ['sNo','firstName', 'lastName', 'class','enrollmentNo','id'];
     studentList:Student[];
 
     constructor(private studentService:StudentService,private router: Router) { }
   
   ngOnInit() {
       this.getAllUsersList();
-
   }
   
   getAllUsersList() {
