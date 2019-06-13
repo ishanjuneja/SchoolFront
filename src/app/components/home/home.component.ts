@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Student } from '../../models/Student';
 import { StudentService } from '../../services/student.service';
 import { AuthService } from '../../services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 export interface SelectType {
   value: string;
@@ -40,9 +41,28 @@ export class HomeComponent implements OnInit {
   classes: SelectType[] = [];
   isPhysicallyDisabled:Boolean=false;
   student:Student = new Student();
-
+  id:number;
+  selected:any;
+  startDate:any;
   constructor(private authService:AuthService,private spinnerService: Ng4LoadingSpinnerService,
-    private router: Router, private _formBuilder: FormBuilder, private studentService:StudentService) {
+    private router: Router, private _formBuilder: FormBuilder, private studentService:StudentService,private _snackBar: MatSnackBar) {
+      
+      if(this.router.getCurrentNavigation().extras.state){
+        this.id=this.router.getCurrentNavigation().extras.state.id
+      
+        this.studentService.getSelectedStudent(this.id).subscribe(
+                (res:any)=>{
+                  console.log(res);
+                  this.classChange(res.admissionDetail.admissionClass)
+                  this.student=res as Student;
+
+                },
+                err=>{
+                  console.log(err)
+                }
+              )
+    }
+      
       this.authService.getRole().subscribe((res: any) => {
       },
         err => {
@@ -57,30 +77,9 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit() {
-   
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
-    this.fifthFormGroup = this._formBuilder.group({
-      fifthCtrl: ['', Validators.required]
-    });
-    this.sixFormGroup = this._formBuilder.group({
-        sixCtrl: ['', Validators.required]
-    });
-    
-
     this.initClasses();
     this.initForm();
-    this.onChange();
+    this.onChange('N');
   }
 
 initForm(){
@@ -97,7 +96,7 @@ initForm(){
     if (Number(event) <= 10) {
       this.streams = [
         { value: 'general', viewValue: 'General (Sanskrit)' },
-        { value: 'homeSchience', viewValue: 'Home Science (Beauty/Wellness)' }];
+        { value: 'homeScience', viewValue: 'Home Science (Beauty/Wellness)' }];
     } else {
       this.streams = [
         { value: 'art', viewValue: 'Art' },
@@ -108,10 +107,17 @@ initForm(){
   }
 
 saveStudent(){
+  this.spinnerService.show();
   console.log(this.student);
   this.studentService.saveStudent(this.student).subscribe(
     res=>{
       console.log(res);
+      this.spinnerService.hide();
+      // alert("Save ")
+      this._snackBar.open("Saved Successfuly", "Ok", {
+      duration: 2000,
+    });
+      
     },
     err=>{
       console.log(err)
@@ -119,7 +125,13 @@ saveStudent(){
   )
 }
 
-onChange(){
+onChange(event){
+  if(event.value=='Y'){
+    this.isPhysicallyDisabled = true;
+  }
+  else{
+    this.isPhysicallyDisabled=false;
+  }
   this.fifthFormGroup.controls['handicapControl'].valueChanges.subscribe(value=>{
     this.isPhysicallyDisabled=value=='Y'?true:false;
   })

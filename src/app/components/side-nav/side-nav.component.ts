@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -8,7 +9,7 @@ import * as $ from 'jquery';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -16,5 +17,12 @@ export class SideNavComponent implements OnInit {
         $('.sidebar').toggleClass('side');
       });
     });
+  }
+
+  goToHome(){
+    this.router.navigateByUrl('/home')
+  }
+  goToDetails(){
+    this.router.navigateByUrl('sList')
   }
 }

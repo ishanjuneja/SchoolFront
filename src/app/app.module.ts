@@ -24,7 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -61,11 +61,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSidenavModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSnackBarModule
   ],
   providers: [
-    { provide: LocationStrategy,
-     useClass: HashLocationStrategy 
-    },
+    // { provide: LocationStrategy,
+    //  useClass: HashLocationStrategy 
+    // },
     {
     provide : HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
